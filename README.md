@@ -1,2 +1,2 @@
 # incremental-dom-to-string
-Drop-in IncrementalDOM to string interpreter
+Early experiments with IncrementalDOM server-side rendering
