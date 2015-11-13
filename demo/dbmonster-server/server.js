@@ -6,7 +6,7 @@ var app = require('./main.js')
 
 
 /*
-	Add a slash to the beginning to pick an example
+	Add a slash before a commented block to pick an example
 	Hit a request on localhost:port
 	Throttle the connection to see it in action
 */
@@ -15,7 +15,7 @@ var requestListener = function (req, res) {
 
 	if (req.url === '/favicon.ico') return res.end()
 
-	//* http streaming
+	/* http streaming, this is penalized by link tags in the head
 	IncrementalDOM.setOutput(false, res, function (out) {
 		console.log('patch stream done > end response')
 		out.end()
@@ -23,7 +23,7 @@ var requestListener = function (req, res) {
 	app()
 	//*/
 
-	/* render then send in callback
+	//* render then send in callback
 	IncrementalDOM.setOutput(false, {}, function (out) {
 		console.log('patch render done > write response')
 		res.end(out.rendered)
@@ -39,8 +39,8 @@ var requestListener = function (req, res) {
 	res.end(out.rendered)
 	//*/
 
-	//* from cached file
-	/*try {
+	/* from cached file
+	try {
 		fs.accessSync('index.html.cache')
 		var data = fs.readFileSync('index.html.cache').toString()
 		res.end(data)
@@ -53,7 +53,7 @@ var requestListener = function (req, res) {
 			out.end()
 		})
 		app()
-	}*/
+	}
 	//*/
 }
 
