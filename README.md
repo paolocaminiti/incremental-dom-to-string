@@ -1,10 +1,10 @@
 # incremental-dom-to-string
-Early experiments with IncrementalDOM server-side rendering. As of now this is just a [proof of concept](https://github.com/google/incremental-dom/issues/50) all comments and ideas are welcome.
+Early experiments with IncrementalDOM server-side rendering. As of now this is just a [proof of concept](https://github.com/google/incremental-dom/issues/50), all comments and ideas are welcome.
 
 ### Usage
 Import it as you would import the real thing, your app will start rendering to string:
 ```
-var IncrementalDOM = require('incremental-dom-to-string.js')
+var IncrementalDOM = require('incremental-dom-to-string')
 ```
 
 A target output can be set before your app calls IncrementalDOM.patch:
@@ -20,9 +20,7 @@ IncrementalDOM.setOutput(prettyPrint, output, doneCallback, keepOpen)
 
 IncrementalDOM.patch "node" argument can be empty or one of the following:
 - a function: get passed the patch description function as a partial, this can be used to wrap the patch into an outer description function to generate an approot, note that executing the partial is responsability of the node function. Check document.js in the demos for examples
-- an object: when a .innerHTML property is present it will be assigned the patch rendered result, this can enable some other kind of composition or fill an Element.innerHTML when testing in a browser.
-
-When no output or doneCallback is set (.setOutput can indeed be avoided) you can still read the output from a node object reference.
+- an object: when a .innerHTML property is present it will be assigned the patch rendered result, this can enable some other kind of composition or fill an Element.innerHTML when testing in a browser. When .setOuput is not called the node reference, if any, can be an alternative way to read the output.  
 
 The methods expected to return an element will return a mock object, you can assign or merge to this object whatever suits your code:
 ```
