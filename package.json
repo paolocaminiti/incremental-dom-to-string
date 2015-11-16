@@ -17,7 +17,11 @@
     "universal",
     "isomorphic"
   ],
-  "author": "paolo.caminiti@gmail.com",
+  "author": {
+    "name": "Paolo Caminiti",
+    "email": "paolo.caminiti@gmail.com",
+    "url": "https://github.com/paolocaminiti"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/paolocaminiti/incremental-dom-to-string/issues"
