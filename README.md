@@ -3,12 +3,12 @@ Early experiments with IncrementalDOM server-side rendering. As of now this is j
 
 ### Usage
 Import it as you would import the real thing, your app will start rendering to string:
-```
+```javascript
 var IncrementalDOM = require('incremental-dom-to-string')
 ```
 
 A target output can be set before your app calls IncrementalDOM.patch:
-```
+```javascript
 IncrementalDOM.setOutput(prettyPrint, output, doneCallback, keepOpen)
 ```
 - prettyPrint: nothing or a string to be used for indentation.
@@ -23,12 +23,12 @@ IncrementalDOM.patch "node" argument can be empty or one of the following:
 - an object: when a .innerHTML property is present it will be assigned the patch rendered result, this can enable some other kind of composition or fill an Element.innerHTML when testing in a browser. When .setOuput is not called the node reference, if any, can be an alternative way to read the output.  
 
 The methods expected to return an element will return a mock object, you can assign or merge to this object whatever suits your code:
-```
+```javascript
 IncrementalDOM.setElementDummy(obj, merge)
 ```
 
 To forcefully clean up the internal state (mostly when using keepOpen on a strem output):
-```
+```javascript
 IncrementalDOM.forceReset()
 ```
 
