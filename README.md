@@ -1,3 +1,5 @@
+**This repo is now deprecated, development moved to [idom2string](https://github.com/paolocaminiti/idom2string).**
+
 # incremental-dom-to-string
 Early experiments with IncrementalDOM server-side rendering. As of now this is just a [proof of concept](https://github.com/google/incremental-dom/issues/50), all comments and ideas are welcome.
 
@@ -12,7 +14,7 @@ A target output can be set before your app calls IncrementalDOM.patch:
 IncrementalDOM.setOutput(prettyPrint, output, doneCallback, keepOpen)
 ```
 - prettyPrint: nothing or a string to be used for indentation.
-- output: 
+- output:
   - an object: will get a .rendered property containing the output. it defaults to a new Object.
   - a stream: will be directly filled using it's .write method, it's reference is then passed to the callback, it can be an http response, a file stream, std.process...
 - doneCallback: a function being called when patch is done, it receives the output reference.
@@ -20,7 +22,7 @@ IncrementalDOM.setOutput(prettyPrint, output, doneCallback, keepOpen)
 
 IncrementalDOM.patch "node" argument can be empty or one of the following:
 - a function: get passed the patch description function as a partial, this can be used to wrap the patch into an outer description function to generate an approot, note that executing the partial is responsability of the node function. Check document.js in the demos for examples
-- an object: when a .innerHTML property is present it will be assigned the patch rendered result, this can enable some other kind of composition or fill an Element.innerHTML when testing in a browser. When .setOuput is not called the node reference, if any, can be an alternative way to read the output.  
+- an object: when a .innerHTML property is present it will be assigned the patch rendered result, this can enable some other kind of composition or fill an Element.innerHTML when testing in a browser. When .setOuput is not called the node reference, if any, can be an alternative way to read the output.
 
 The methods expected to return an element will return a mock object, you can assign or merge to this object whatever suits your code:
 ```javascript
